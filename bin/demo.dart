@@ -1,13 +1,15 @@
 import 'package:demo/demo.dart';
 
 void main(List<String> arguments) {
-  print('Hello world: ${calculate()}!');
-  final todd = Person(1, 'todd');
-  print(todd.position);
-  final toddDev = Person.havePosition(25, 'toddDev', position: 'dev');
-  print(toddDev.position);
+  final quadrilateral1 = Quadrilateral(1, 2, 3, 4);
+  quadrilateral1.showAllSideLength();
+  final square1 = Square(2);
+  square1.showAllSideLength();
+  final square2 = Square.anthorWwoPairsOfParallelSide(2);
+  square2.showAllSideLength();
 
-  // todd._age
-  final todd2 = Todd(2, 'todd2');
-  print(todd2.getName);
+  final test = TestClass();
+  print(test);
+  final testChild = TestChild();
+  print(testChild);
 }

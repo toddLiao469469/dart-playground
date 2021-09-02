@@ -1,32 +1,46 @@
-int calculate() {
-  print('calculate');
-  return 6 * 11;
-}
+//四邊形
+class Quadrilateral {
+  late final leftSide;
+  late final topSide;
+  late final rightSide;
+  late final bottomSide;
 
-const AAAA = 123;
-
-class Person {
-  int _age;
-  String _name;
-  String position = '';
-  static const type = 'humen';
-  static void hello() {
-    print('hello');
+  Quadrilateral(this.leftSide, this.topSide, this.rightSide, this.bottomSide) {
+    print('\nIn Quadrilateral');
   }
 
-  Person(this._age, this._name);
-  Person.havePosition(this._age, this._name, {required this.position});
-  int get getAge => _age;
-  String get getName => _name;
-  set setName(String x) => _name = x;
+  void showAllSideLength() {
+    print('runtimeType(class) :$runtimeType');
+    print(
+        'leftSide: $leftSide , topSide: $topSide , rightSide: $rightSide , bottomSide:$bottomSide');
+  }
 
-  void personAge(int x) {
-    _age = x;
+  Quadrilateral.twoPairsOfParallelSide(int sideLength1, int sideLengt2) {
+    leftSide = sideLength1;
+    rightSide = sideLength1;
+    topSide = sideLengt2;
+    bottomSide = sideLengt2;
   }
 }
 
-class Todd extends Person {
-  Todd(int _age, String _name) : super(_age, _name);
-  // Todd(int _age, String _name, String position)
-  //     : super.havePosition(_age, _name, position: position);
+//正方形
+class Square extends Quadrilateral {
+  Square(int sideLength)
+      : super(sideLength, sideLength, sideLength, sideLength) {
+    print('In Square');
+  }
+  Square.twoPairsOfParallelSide(int sideLength)
+      : super.twoPairsOfParallelSide(sideLength, sideLength);
+  Square.anthorWwoPairsOfParallelSide(int sideLength)
+      : super.twoPairsOfParallelSide(sideLength, sideLength);
 }
+
+class TestClass {
+  late final int a;
+  TestClass() {
+    print('test');
+    a = 0;
+  }
+}
+
+class TestChild extends TestClass {}
