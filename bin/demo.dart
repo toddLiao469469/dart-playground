@@ -7,6 +7,8 @@ void main(List<String> arguments) {
   square1.showAllSideLength();
   final square2 = Square.anthorWwoPairsOfParallelSide(2);
   square2.showAllSideLength();
+  print(square2.perimeter);
+  print(square2.name);
 
   final test = TestClass();
   print(test);
