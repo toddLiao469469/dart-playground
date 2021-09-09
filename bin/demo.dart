@@ -1,13 +1,20 @@
-import 'package:demo/demo.dart';
-
 void main(List<String> arguments) {
-  print('Hello world: ${calculate()}!');
-  final todd = Person(1, 'todd');
-  print(todd.position);
-  final toddDev = Person.havePosition(25, 'toddDev', position: 'dev');
-  print(toddDev.position);
+  final listA = [1, 2, 3, 4];
+  final listB = List.filled(3, []);
+  final listC = List.generate(3, (_) => []);
+  var tringList = ['vue', 'kotlin', 'dart', 'angular', 'flutter'];
+  var reversed = tringList..add('123');
 
-  // todd._age
-  final todd2 = Todd(2, 'todd2');
-  print(todd2.getName);
+  listA.add(1);
+
+  print(tringList.hashCode);
+  print(tringList);
+  print(reversed.hashCode);
+  print(reversed);
+  listB.forEach((element) {
+    print(element.hashCode);
+  });
+  listC.forEach((element) {
+    print(element.hashCode);
+  });
 }
