@@ -3,19 +3,26 @@ abstract class Shape {
   double get perimeter;
 }
 
+mixin ShowName {
+  void showName() {
+    print('mixin ShowName');
+    print('runtimeType(class) :$runtimeType');
+  }
+}
+
 //四邊形
-class Quadrilateral implements Shape {
+class Quadrilateral with ShowName implements Shape {
   late final double leftSide;
   late final double topSide;
   late final double rightSide;
   late final double bottomSide;
 
   Quadrilateral(this.leftSide, this.topSide, this.rightSide, this.bottomSide) {
-    print('\nIn Quadrilateral');
+    print('\nIn Quadrilateral construcer');
   }
 
   void showAllSideLength() {
-    print('runtimeType(class) :$runtimeType');
+    super.showName();
     print(
         'leftSide: $leftSide , topSide: $topSide , rightSide: $rightSide , bottomSide:$bottomSide');
   }
@@ -38,7 +45,7 @@ class Quadrilateral implements Shape {
 class Square extends Quadrilateral {
   Square(double sideLength)
       : super(sideLength, sideLength, sideLength, sideLength) {
-    print('In Square');
+    print('In Square  construcer');
   }
   Square.twoPairsOfParallelSide(double sideLength)
       : super.twoPairsOfParallelSide(sideLength, sideLength);
