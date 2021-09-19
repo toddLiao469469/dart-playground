@@ -6,4 +6,7 @@ void main(List<String> arguments) {
   todd.setName = 'todd2';
   todd.setAge(2);
   print('name:${todd.name}, age:${todd.getAge()}');
+
+  print(Person.type);
+  Person.hello();
 }

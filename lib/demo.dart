@@ -1,4 +1,9 @@
 class Person {
+  static const type = 'humen';
+  static void hello() {
+    print('hello');
+  }
+
   String _name;
   int _age;
   Person(this._name, this._age);
