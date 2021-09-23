@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:demo/number_creator.dart';
+final _numberStream =
+    Stream<int>.periodic(Duration(seconds: 1), (index) => index).take(5);
 
 Future<String> outputAfter3s(String data) => Future.delayed(
       Duration(seconds: 3),
@@ -17,6 +18,14 @@ Future<String> fetchData() => Future(
 
 Future<String> fetchData2() async => 'data';
 
+Future<int> getTotal(Stream<int> stream) async {
+  var total = 0;
+  await for (var number in stream) {
+    total += number;
+  }
+  return total;
+}
+
 void fetch() async {
   try {
     // throwError();
@@ -31,8 +40,11 @@ void fetch() async {
     print('$data2');
     print('$dataViaTimer1');
     print('$dataViaTimer2');
+    print(await getTotal(_numberStream));
   } catch (err) {
     print(err);
+  } finally {
+    print('done');
   }
 }
 
