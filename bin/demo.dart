@@ -5,8 +5,12 @@ import 'package:demo/number_creator.dart';
 
 void main(List<String> arguments) {
   print('Hello world');
-  final myStream = NumberCreator().stream.take(10);
+  final myStream = NumberCreator().stream;
   final subscription = myStream.listen((event) {
-    print(event);
+    print('event $event');
+  }, onError: (err) {
+    print(err);
+  }, onDone: () {
+    print('subscription done!!');
   });
 }
