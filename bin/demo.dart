@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:demo/demo.dart';
+import 'package:demo/number_creator.dart';
 
 Future<String> outputAfter3s(String data) => Future.delayed(
       Duration(seconds: 3),
@@ -17,19 +17,25 @@ Future<String> fetchData() => Future(
 
 Future<String> fetchData2() async => 'data';
 
-void main(List<String> arguments) async {
+void fetch() async {
   try {
     // throwError();
+    final data1 = await fetchData();
+    final data2 = await fetchData2();
     print('n1');
-    final data = await outputAfter3s('asyncData1');
+    final dataViaTimer1 = await outputAfter3s('asyncData1');
     print('n2');
 
-    final data2 = await outputAfter3s('asyncData2');
-    print('n3');
-
-    print('$data');
+    final dataViaTimer2 = await outputAfter3s('asyncData2');
+    print('$data1');
     print('$data2');
+    print('$dataViaTimer1');
+    print('$dataViaTimer2');
   } catch (err) {
     print(err);
   }
+}
+
+void main(List<String> arguments) {
+  fetch();
 }
