@@ -2,7 +2,7 @@ import 'dart:async';
 
 class NumberCreator {
   NumberCreator() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(Duration(milliseconds: 500), (timer) {
       if (timer.tick == 3) {
         _controller.addError('ERROR!!!');
       } else if (timer.tick == 20) {
@@ -18,5 +18,5 @@ class NumberCreator {
 }
 
 Stream<int> counterStream() {
-  return Stream<int>.periodic(const Duration(seconds: 1), (x) => x).take(5);
+  return Stream<int>.periodic(const Duration(seconds: 1), (x) => x);
 }
